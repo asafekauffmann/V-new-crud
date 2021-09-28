@@ -6,6 +6,9 @@ export const retrievedGallery = createAction(
     props<{allGallery:GalleryModel[]}> ()
 );
 
+// Props significa Propriedade (de um tipo de objeto) sendo passado na criação da Action na qual irá
+// se referir ao galleryModel do nome dos elementos do Array de API JSON, criando action Api Success
+
 
 export const invokeGalleryAPI = createAction(
     '[Gallery API] Invoke API'
