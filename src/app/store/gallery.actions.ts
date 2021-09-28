@@ -5,3 +5,8 @@ export const retrievedGallery = createAction(
     '[Gallery API] API Success',
     props<{allGallery:GalleryModel[]}> ()
 );
+
+
+export const invokeGalleryAPI = createAction(
+    '[Gallery API] Invoke API'
+);

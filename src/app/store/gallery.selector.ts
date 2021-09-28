@@ -11,4 +11,10 @@ export const uniqueAlbumIds = createSelector(
     }
 )
 
-
+export const galleryByAlbumId = (albumId: number) => 
+    createSelector(galleryRootSelector, (gallery: GalleryModel[]) => {
+        if (albumId === -1) {
+            return gallery;
+        }
+        return gallery.filter(_ => _.albumId === albumId)
+    });

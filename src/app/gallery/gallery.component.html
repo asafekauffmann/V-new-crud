@@ -1,10 +1,33 @@
 <div class="container">
-    <div class="row juntify-content-center">
-        <select class="form-select form-select-md mt-3 w-50">
-            <option value="-1">Select Gallery</option>
+    <div class="row justify-content-center">
+        <select 
+            class="form-select form-select-md mt-3 w-50" 
+            [ngModel]="albumSelecedId" 
+            (ngModelChange)="onAlbumChange($event)"
+        >
+
+            <option value="-1">Select Gallery Album Id</option>
             <option *ngFor="let i of albumIds$ | async" [value]="i">
                 {{ i }}
             </option>
         </select>
     </div>
+
+    <div class="row">
+        <div *ngFor="let item of allAlbums$ | async" class="card m-3" style="width: 18rem">
+            <img src="{{ item.thumbnailUrl }}" class="card-img-top" alt="..." style="height: 150px">
+            
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ item.title }}
+                </h5>
+
+                <div>
+                    AlbumId - {{ item.albumId }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
